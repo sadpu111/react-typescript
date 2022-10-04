@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 interface CircleProps { // (1) props로 구성된 객체의 shape을 정의하여(prop type과 유사하지만 코드 실행 전에 에러를 표시한다는 점에서 차이 존재)
@@ -20,6 +21,10 @@ const Container = styled.div<ContainerProps>`
 `;
 
 function Circle({ bgColor, borderColor, text="default text" }: CircleProps) { // (2) Component에 전달한다. typescript를 통해 입력된 props 자동입력 및 존재하지 않는 props는 에러처리
+/*   const [counter, setCounter] = useState(true); // 초기값의 type을 바탕으로 modifier에 들어갈 인자의 적합여부 판단
+  setCounter(1); // 초기값과 같이 boolean이 아니라면 에러발생. */
+/*   const [value, setValue] = useState<number|string>(0); //  type을 지정할 수 있다.
+  setValue("good"); // 초기값이 number임에도 string도 지정되어있어 에러가 발생하지 않는다. */
   return <Container bgColor={bgColor} borderColor={borderColor ?? bgColor}>
       {text}
     </Container>; 
